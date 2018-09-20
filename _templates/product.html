@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="{{page.url | back_url | back_url }}">{{ site.t[page.locale]["categories"] | capitalize }}</a></li>
+    <li><a href="{{page.url | back_url }}">{{ page.category.name }}</a></li>
+  </ul>
+</nav>
+
+<div class="columns">
+  <div class="column is-two-thirds">
+    <img src="{{page.product.image.url | image_path}}" alt="">
+  </div>
+  <div class="column">
+    <h1 class="title">{{page.product.name}}</h1>
+
+    <article class="message is-warning">
+      <div class="message-body">
+        Shopping goes here
+      </div>
+    </article>
+  </div>
+</div>

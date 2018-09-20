@@ -1,0 +1,46 @@
+contentful:
+  spaces:
+    - en-US:
+        space: ENV_CONTENTFUL_SPACE_ID
+        access_token: ENV_CONTENTFUL_DELIVERY_ACCESS_TOKEN
+        all_entries: true
+        cda_query:
+          locale: "en-US"
+    - it:
+        space: ENV_CONTENTFUL_SPACE_ID
+        access_token: ENV_CONTENTFUL_DELIVERY_ACCESS_TOKEN
+        all_entries: true
+        cda_query:
+          locale: "it"
+
+t:
+  en-US:
+    add_to_bag: add to shopping bag
+    available: available
+    categories: categories
+    continue_shopping: continue shopping
+    days: days
+    free_over: free over
+    languages:
+      en-US: english
+      it: italian
+    method: method
+    out_of_stock: the requested quantity is not available
+    price: price
+    proceed_to_checkout: proceed to checkout
+    your_shopping_bag: your shopping bag
+  it:
+    add_to_bag: aggiungi alla shopping bag
+    available: disponibile
+    categories: categorie
+    continue_shopping: continua lo shopping
+    days: giorni
+    free_over: gratis oltre
+    languages:
+      en-US: inglese
+      it: italiano
+    method: metodo
+    out_of_stock: la quantità richiesta non è disponibile
+    price: prezzo
+    proceed_to_checkout: vai al checkout
+    your_shopping_bag: la tua shopping bag

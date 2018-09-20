@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contentful Commerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  </head>
+  <body>
+    <nav class="navbar is-dark is-fixed-top">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="/" class="navbar-item">
+            <img src="/assets/images/contentful.svg" alt="Contentful" id="contentful-logo">
+            <span class="icon"> <i class="fas fa-plus"></i> </span>
+            <img src="/assets/images/commercelayer.svg" alt="Commerce Layer" id="commercelayer-logo">
+          </a>
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            {% include country_selector.html %}
+            {% include language_selector.html %}
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section" id="main">
+      <div class="container">
+        {{ content }}
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Like what you see?</strong>
+           Read the step-by-step tutorial on the <a href="https://www.contentful.com/blog/">Contentful's blog</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li class="is-active"><a href="/">{{ site.t[page.locale]["categories"] | capitalize }}</a></li>
+  </ul>
+</nav>
+
+<div class="columns is-multiline">
+{% for category in page.country.catalogue.categories %}
+  {% assign category_slug = category.name | parameterize %}
+  <div class="column is-half-tablet is-one-quarter-desktop">
+    <div class="box">
+      <h2 class="has-text-weight-bold">{{category.name}}</h2>
+      <a href="{{category_slug}}">
+        <img src="{{ category.image.url | image_path }}" alt="{{ category.name }}">
+      </a>
+    </div>
+  </div>
+{% endfor %}
+</div>

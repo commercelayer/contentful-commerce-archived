@@ -1,0 +1,17 @@
+{% if page.country %}
+  <div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">
+      Shipping to:&nbsp;
+      <img src="/assets/images/countries/{{page.country.code | downcase }}.svg", width="20">&nbsp;
+    </a>
+    <div class="navbar-dropdown">
+      {% assign countries = site | countries: page.locale %}
+      {% for country in countries %}
+        <a class="navbar-item" href="/{{country.code | downcase}}/{{country.default_locale | downcase }}">
+          <img src="/assets/images/countries/{{country.code | downcase }}.svg", width="20">&nbsp;
+          {{ country.name }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

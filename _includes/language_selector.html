@@ -1,0 +1,17 @@
+{% if page.locale %}
+  <div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">
+      Language:&nbsp;
+      <img src="/assets/images/languages/{{page.locale | downcase }}.svg", width="20">
+    </a>
+    <div class="navbar-dropdown is-right">
+      {% assign locales = site | locales %}
+      {% for locale in locales %}
+        <a class="navbar-item" href="/{{page.country.code | downcase}}/{{locale | downcase }}">
+          <img src="/assets/images/languages/{{locale | downcase }}.svg", width="20">&nbsp;
+          {{ site.t[page.locale]["languages"][locale] | capitalize}}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
