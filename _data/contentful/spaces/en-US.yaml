@@ -18527,9 +18527,9 @@ country:
 - sys:
     id: 537WJVLMDYawwYsg2weoiO
     created_at: !ruby/object:DateTime 2018-09-14 12:06:21.913000000 Z
-    updated_at: !ruby/object:DateTime 2018-09-17 12:47:57.304000000 Z
+    updated_at: !ruby/object:DateTime 2018-09-20 16:39:45.705000000 Z
     content_type_id: country
-    revision: 2
+    revision: 3
   name: United States
   code: US
   catalogue:
@@ -23015,13 +23015,13 @@ country:
           description: 
           url: "//images.ctfassets.net/blh476ckz2yh/6n4B3PvS36GAMaG48sEMoa/46385e3a80e583fb5d6ac2df5b81685a/SOCKXXMUE63E74FFFFFFLXXX.jpg"
   default_locale: en-US
-  market_id: '53'
+  market_id: '76'
 - sys:
     id: 6HPMk0cvDiU604MU6y60C2
     created_at: !ruby/object:DateTime 2018-09-14 12:07:21.895000000 Z
-    updated_at: !ruby/object:DateTime 2018-09-17 12:47:49.364000000 Z
+    updated_at: !ruby/object:DateTime 2018-09-20 16:39:17.521000000 Z
     content_type_id: country
-    revision: 2
+    revision: 3
   name: Italy
   code: IT
   catalogue:
@@ -26477,4 +26477,4 @@ country:
           description: 
           url: "//images.ctfassets.net/blh476ckz2yh/33Jf8NAXQQeGsaUc42gUq0/be4de3a65a3cfc54f7623dc74b179958/HATBSBMUFFFFFFE63E74XXXX.jpg"
   default_locale: it
-  market_id: '53'
+  market_id: '75'

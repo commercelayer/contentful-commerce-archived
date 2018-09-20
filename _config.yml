@@ -21,6 +21,7 @@ t:
     continue_shopping: continue shopping
     days: days
     free_over: free over
+    language: language
     languages:
       en-US: english
       it: italian
@@ -28,6 +29,7 @@ t:
     out_of_stock: the requested quantity is not available
     price: price
     proceed_to_checkout: proceed to checkout
+    shipping_to: shipping to
     your_shopping_bag: your shopping bag
   it:
     add_to_bag: aggiungi alla shopping bag
@@ -36,6 +38,7 @@ t:
     continue_shopping: continua lo shopping
     days: giorni
     free_over: gratis oltre
+    language: lingua
     languages:
       en-US: inglese
       it: italiano
@@ -43,4 +46,5 @@ t:
     out_of_stock: la quantità richiesta non è disponibile
     price: prezzo
     proceed_to_checkout: vai al checkout
+    shipping_to: spedizione
     your_shopping_bag: la tua shopping bag

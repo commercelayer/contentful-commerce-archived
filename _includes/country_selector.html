@@ -1,7 +1,7 @@
 {% if page.country %}
   <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link">
-      Shipping to:&nbsp;
+      {{ site.t[page.locale]['shipping_to'] | capitalize }}:&nbsp;
       <img src="/assets/images/countries/{{page.country.code | downcase }}.svg", width="20">&nbsp;
     </a>
     <div class="navbar-dropdown">

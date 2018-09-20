@@ -1,7 +1,7 @@
 {% if page.locale %}
   <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link">
-      Language:&nbsp;
+      {{ site.t[page.locale]['language'] | capitalize }}:&nbsp;
       <img src="/assets/images/languages/{{page.locale | downcase }}.svg", width="20">
     </a>
     <div class="navbar-dropdown is-right">

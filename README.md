@@ -277,6 +277,7 @@ $ touch _templates/product.html
     <title>Contentful Commerce</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
   </head>
   <body>
@@ -320,7 +321,7 @@ $ touch _templates/product.html
 {% if page.country %}
   <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link">
-      Shipping to:&nbsp;
+      {{ site.t[page.locale]['shipping_to'] | capitalize }}:&nbsp;
       <img src="/assets/images/countries/{{page.country.code | downcase }}.svg", width="20">&nbsp;
     </a>
     <div class="navbar-dropdown">
@@ -334,6 +335,7 @@ $ touch _templates/product.html
     </div>
   </div>
 {% endif %}
+
 ```
 
 ``` html
@@ -342,7 +344,7 @@ $ touch _templates/product.html
 {% if page.locale %}
   <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link">
-      Language:&nbsp;
+      {{ site.t[page.locale]['language'] | capitalize }}:&nbsp;
       <img src="/assets/images/languages/{{page.locale | downcase }}.svg", width="20">
     </a>
     <div class="navbar-dropdown is-right">
@@ -356,6 +358,7 @@ $ touch _templates/product.html
     </div>
   </div>
 {% endif %}
+
 ```
 
 - add /assets/images and /assets/stylesheets
@@ -496,6 +499,7 @@ t:
     continue_shopping: continue shopping
     days: days
     free_over: free over
+    language: language
     languages:
       en-US: english
       it: italian
@@ -503,6 +507,7 @@ t:
     out_of_stock: the requested quantity is not available
     price: price
     proceed_to_checkout: proceed to checkout
+    shipping_to: shipping to
     your_shopping_bag: your shopping bag
   it:
     add_to_bag: aggiungi alla shopping bag
@@ -511,6 +516,7 @@ t:
     continue_shopping: continua lo shopping
     days: giorni
     free_over: gratis oltre
+    language: lingua
     languages:
       en-US: inglese
       it: italiano
@@ -518,7 +524,9 @@ t:
     out_of_stock: la quantità richiesta non è disponibile
     price: prezzo
     proceed_to_checkout: vai al checkout
+    shipping_to: spedizione
     your_shopping_bag: la tua shopping bag
+
 ```
 
 ``` shell
