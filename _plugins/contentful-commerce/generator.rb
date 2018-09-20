@@ -4,7 +4,7 @@ module ContentfulCommerce
 
     def generate(site)
 
-      site.config['env'] = ENV
+      setup_commercelayer_env(site)
 
       locales(site).each do |locale|
 
@@ -48,6 +48,12 @@ module ContentfulCommerce
 
     def add_page(site, dir, name, template, data={})
       site.pages << Page.new(site, dir, name, template, data)
+    end
+
+    def setup_commercelayer_env(site)
+      site.config['commercelayer_base_url'] = ENV['COMMERCELAYER_BASE_URL']
+      site.config['commercelayer_client_id'] = ENV['COMMERCELAYER_CLIENT_ID']
+      site.config['site_base_url'] = ENV['SITE_BASE_URL']
     end
 
   end

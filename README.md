@@ -140,7 +140,7 @@ module ContentfulCommerce
 
     def generate(site)
 
-      site.config['env'] = ENV
+      setup_commercelayer_env(site)
 
       locales(site).each do |locale|
 
@@ -152,10 +152,10 @@ module ContentfulCommerce
           add_page(site, base_dir, "index", "catalogue", "country" => country, "locale" => locale)
 
           country["catalogue"]["categories"].each do |category|
-            add_page(site, base_dir, category["name"], "category", "country" => country, "locale" => locale, "category" => category)
+            category_dir = base_dir + "/#{category["name"].parameterize}"
+            add_page(site, category_dir, "index", "category", "country" => country, "locale" => locale, "category" => category)
 
             products(category, country).each do |product|
-              category_dir = [base_dir, category["name"].parameterize].join("/").downcase
               add_page(site, category_dir, product_name(product), "product", "country" => country, "locale" => locale, "category" => category, "product" => product)
             end
 
@@ -184,6 +184,12 @@ module ContentfulCommerce
 
     def add_page(site, dir, name, template, data={})
       site.pages << Page.new(site, dir, name, template, data)
+    end
+
+    def setup_commercelayer_env(site)
+      site.config['commercelayer_base_url'] = ENV['COMMERCELAYER_BASE_URL']
+      site.config['commercelayer_client_id'] = ENV['COMMERCELAYER_CLIENT_ID']
+      site.config['site_base_url'] = ENV['SITE_BASE_URL']
     end
 
   end
@@ -541,8 +547,125 @@ $ git tag -a v1.0 -m "Catalogue"
 - Create a Github repo
 
 ``` shell
-git remote add origin https://github.com/commercelayer/contentful-commerce.git
-git push -u origin master
+$ git remote add origin https://github.com/commercelayer/contentful-commerce.git
+$ git push -u origin master
 ```
 
 - Create free account on Netlify
+- Connect repo and deploy (link to preview)
+
+# Add ecommerce
+
+``` shell
+$ npm init
+$ npm install commercelayer --save
+$ npm install webpack webpack-cli --save-dev
+$ touch webpack.config.js
+```
+
+``` js
+// webpack.config.js
+const path = require('path')
+
+module.exports = {
+  mode: 'production',
+  entry: './index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, "assets/javascripts")
+  }
+}
+```
+
+- Add build and watch scripts to package.json
+
+``` json
+{
+  "name": "contentful-commerce",
+  "version": "1.0.0",
+  "description": "Static site e-commerce demo with Contentful, Commerce Layer and Jekyll.",
+  "main": "index.js",
+  "dependencies": {
+    "commercelayer": "^1.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commercelayer/contentful-commerce.git"
+  },
+  "author": "Filippo Conforti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/commercelayer/contentful-commerce/issues"
+  },
+  "homepage": "https://github.com/commercelayer/contentful-commerce#readme"
+}
+```
+
+``` shell
+$ touch index.js
+```
+
+``` js
+// index.js
+
+const commercelayer = require('commercelayer')
+
+document.addEventListener('DOMContentLoaded', function () {
+  commercelayer.init()
+})
+```
+
+``` shell
+$ touch _includes/commercelayer.html
+```
+
+``` html
+    <!-- _includes/commercelayer.html -->
+
+    <div id="commercelayer"
+      data-base-url="{{site.commercelayer_base_url}}"
+      data-client-id="{{site.commercelayer_client_id}}"
+      data-market-id="{{page.country.market_id }}"
+      data-country-code="{{page.country.code }}"
+      data-language-code="{{page.locale}}"
+      data-cart-url="{{site.site_base_url}}"
+      data-return-url="{{site.site_base_url}}"
+      data-privacy-url="{{site.site_base_url}}"
+      data-terms-url="{{site.site_base_url}}">
+    </div>
+```
+
+``` html
+    <!-- _layouts/default.html -->
+
+    {% include commercelayer.html %}    
+    <script src="/assets/javascripts/main.js"></script>
+  </body>
+</html>
+```
+
+``` shell
+$ bundle exec jekyll serve
+$ npm run watch
+```
+
+- Every change to index js is built as assets/javascripts/main.js
+
+``` txt
+# .gitignore
+# [...]
+
+node_modules
+```
+
+- Add env variables to Netlify
+- Commit and push

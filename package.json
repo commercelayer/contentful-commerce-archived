@@ -1,0 +1,28 @@
+{
+  "name": "contentful-commerce",
+  "version": "1.0.0",
+  "description": "- Create free account on Contentful - Create empty space - Get Organization ID, Content management token (Generate personal token), Space ID and Content Delivery API (Access token)",
+  "main": "index.js",
+  "dependencies": {
+    "commercelayer": "^1.1.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commercelayer/contentful-commerce.git"
+  },
+  "author": "Filippo Conforti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/commercelayer/contentful-commerce/issues"
+  },
+  "homepage": "https://github.com/commercelayer/contentful-commerce#readme"
+}
