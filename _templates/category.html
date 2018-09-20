@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="{{page.url | back_url }}">{{ site.t[page.locale]["categories"] | capitalize }}</a></li>
+    <li class="is-active"><a href="{{page.url}}">{{ page.category.name }}</a></li>
+  </ul>
+</nav>
+
+<div class="columns is-multiline is-mobile">
+
+{% assign products_rel = "products" %}
+{% assign products_rel_country = "products" | append: "_" | append: page.country.code | downcase %}
+{% if page.category[products_rel_country] and page.category[products_rel_country] != empty %}
+  {% assign products_rel = products_rel_country %}
+{% endif %}
+
+{% for product in page.category[products_rel] %}
+  {% assign product_slug = product | product_slug %}
+
+  <div class="column is-half-touch is-one-quarter-desktop">
+    <div class="product-listing box">
+      <a href="{{product_slug}}">
+        <img src="{{ product.image.url | image_path }}" alt="{{ product.name }}">
+      </a>
+      <h2 class="has-text-weight-bold is-hidden-mobile">{{product.name}}</h2>
+      <div class="is-size-7 is-hidden-mobile">{{product.reference}}</div>
+    </div>
+  </div>
+{% endfor %}
+</div>

@@ -1,0 +1,180 @@
+{
+  "version": 3,
+  "contentTypes": [
+    {
+      "id": "catalogue",
+      "name": "Catalogue",
+      "displayField": "name",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol"
+        },
+        {
+          "id": "categories",
+          "name": "Categories",
+          "type": "Array",
+          "items": {
+            "type": "Link",
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "id": "category",
+      "name": "Category",
+      "displayField": "name",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol"
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "linkType": "Asset"
+        },
+        {
+          "id": "products",
+          "name": "Products",
+          "type": "Array",
+          "items": {
+            "type": "Link",
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "products_it",
+          "name": "Products (IT)",
+          "type": "Array",
+          "items": {
+            "type": "Link",
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "id": "country",
+      "name": "Country",
+      "displayField": "name",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol"
+        },
+        {
+          "id": "code",
+          "name": "Code",
+          "type": "Symbol"
+        },
+        {
+          "id": "catalogue",
+          "name": "Catalogue",
+          "type": "Link",
+          "linkType": "Entry"
+        },
+        {
+          "id": "defaultLocale",
+          "name": "Default locale",
+          "type": "Symbol"
+        },
+        {
+          "id": "market_id",
+          "name": "Market ID",
+          "type": "Symbol"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "name": "Product",
+      "displayField": "name",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol"
+        },
+        {
+          "id": "reference",
+          "name": "Reference",
+          "type": "Symbol"
+        },
+        {
+          "id": "variants",
+          "name": "Variants",
+          "type": "Array",
+          "items": {
+            "type": "Link",
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "linkType": "Asset"
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text"
+        }
+      ]
+    },
+    {
+      "id": "size",
+      "name": "Size",
+      "displayField": "name",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol"
+        }
+      ]
+    },
+    {
+      "id": "variant",
+      "name": "Variant",
+      "displayField": "name",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol"
+        },
+        {
+          "id": "code",
+          "name": "Code",
+          "type": "Symbol"
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text"
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "linkType": "Asset"
+        },
+        {
+          "id": "size",
+          "name": "Size",
+          "type": "Link",
+          "linkType": "Entry"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "entries": []
+}

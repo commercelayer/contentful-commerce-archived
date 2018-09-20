@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div id="country-selector">
+  <div class="columns">
+    <div class="column is-offset-one-quarter is-half">
+      <h1 class="title">
+        Choose your country
+      </h1>
+      <p class="subtitle">
+        This is a static site e-commerce demo built with <a href="https://www.contentful.com/">Contentful</a>, <a href="https://commercelayer.io/">Commerce Layer</a> and <a href="https://jekyllrb.com/">Jekyll</a>.
+        To get started, choose a shipping country below. Each country has a dedicated catalog, price list, and inventory model.
+      </p>
+      <div class="columns is-mobile">
+        {% for country in site.data["contentful"]["spaces"]["en-US"]["country"] %}
+          <div class="column">
+            <div class="box">
+              <a href="/{{country.code | parameterize}}/{{country.default_locale | parameterize }}">
+                <img src="/assets/images/countries/{{country.code | parameterize}}.svg" alt="{{country.name}}" class="image">
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
