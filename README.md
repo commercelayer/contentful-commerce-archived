@@ -507,6 +507,7 @@ t:
     out_of_stock: the requested quantity is not available
     price: price
     proceed_to_checkout: proceed to checkout
+    select_size: select your size
     shipping_to: shipping to
     your_shopping_bag: your shopping bag
   it:
@@ -524,6 +525,7 @@ t:
     out_of_stock: la quantità richiesta non è disponibile
     price: prezzo
     proceed_to_checkout: vai al checkout
+    select_size: select your size
     shipping_to: spedizione
     your_shopping_bag: la tua shopping bag
 
@@ -695,5 +697,36 @@ node_modules
 <div class="price" data-sku-code="{{ page.product.variants.first.code }}">
   <span class="compare-at-amount large has-text-grey-light"></span>
   <span class="amount large has-text-success"></span>
+</div>
+```
+
+# Variants
+
+``` html
+  <!-- _tamplates/product.html -->
+
+<div class="select is-fullwidth">
+  <select class="variant-select">
+    <option disabled selected value="">{{ site.t[page.locale]["select_size"] | capitalize }}</option>
+    {% for variant in page.product.variants %}
+      <option class="variant" data-sku-code="{{variant.code}}">
+        {{ variant.size.name }}
+      </option>
+    {% endfor %}
+  </select>
+</div>
+
+<a href="#" class="add-to-bag button is-success is-fullwidth" data-product-name="{{page.product.name}}" data-sku-image-Url="{{page.product.image.url}}">
+  {{ site.t[page.locale]['add_to_bag'] | capitalize }}
+</a>
+
+<div class="available-message has-text-success">
+  {{ site.t[page.locale]['available'] | capitalize}} in
+  <span class="available-message-min-days"></span>-<span class="available-message-max-days"></span>
+  {{ site.t[page.locale]['days'] }}
+</div>
+
+<div class="unavailable-message has-text-danger">
+  {{ site.t[page.locale]['out_of_stock'] | capitalize }}
 </div>
 ```
