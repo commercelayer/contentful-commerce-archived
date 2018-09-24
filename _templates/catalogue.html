@@ -12,9 +12,9 @@ layout: default
 <div class="columns is-multiline">
 {% for category in page.country.catalogue.categories %}
   {% assign category_slug = category.name | parameterize %}
-  <div class="column is-half-tablet is-one-quarter-desktop">
-    <div class="box">
-      <h2 class="has-text-weight-bold">{{category.name}}</h2>
+  <div class="column is-half-tablet is-one-fifth-desktop">
+    <h2 class="has-text-weight-bold">{{category.name}}</h2>    
+    <div class="category-listing box">
       <a href="{{category_slug}}">
         <img src="{{ category.image.url | image_path }}" alt="{{ category.name }}">
       </a>

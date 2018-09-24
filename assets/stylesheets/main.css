@@ -10,6 +10,11 @@
 #country-selector {
   margin-bottom: 40px;
 }
+.category-listing {
+  margin-top: 10px;
+  padding: 40px;
+}
+
 .product-listing h2 {
   min-height: 60px;
 }
@@ -79,6 +84,7 @@
 }
 #main {
   transition: opacity 0.5s;
+  min-height: 500px;
 }
 #main.open {
   opacity: 0.3;

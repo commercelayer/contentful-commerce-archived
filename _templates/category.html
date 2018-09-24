@@ -28,6 +28,10 @@ layout: default
       </a>
       <h2 class="has-text-weight-bold is-hidden-mobile">{{product.name}}</h2>
       <div class="is-size-7 is-hidden-mobile">{{product.reference}}</div>
+      <div class="price" data-sku-code="{{ product.variants.first.code }}">
+        <span class="amount"></span>
+        <span class="compare-at-amount"></span>
+      </div>
     </div>
   </div>
 {% endfor %}

@@ -17,10 +17,10 @@ layout: default
   <div class="column">
     <h1 class="title">{{page.product.name}}</h1>
 
-    <article class="message is-warning">
-      <div class="message-body">
-        Shopping goes here
-      </div>
-    </article>
+    <div class="price" data-sku-code="{{ page.product.variants.first.code }}">
+      <span class="compare-at-amount large has-text-grey-light"></span>
+      <span class="amount large has-text-success"></span>
+    </div>
+
   </div>
 </div>

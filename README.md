@@ -405,9 +405,9 @@ layout: default
 <div class="columns is-multiline">
 {% for category in page.country.catalogue.categories %}
   {% assign category_slug = category.name | parameterize %}
-  <div class="column is-half-tablet is-one-quarter-desktop">
-    <div class="box">
-      <h2 class="has-text-weight-bold">{{category.name}}</h2>
+  <div class="column is-half-tablet is-one-fifth-desktop">
+    <h2 class="has-text-weight-bold">{{category.name}}</h2>
+    <div class="category-listing box">
       <a href="{{category_slug}}">
         <img src="{{ category.image.url | image_path }}" alt="{{ category.name }}">
       </a>
@@ -677,3 +677,23 @@ node_modules
 
 - Add env variables to Netlify
 - Commit and push
+
+# Prices
+
+``` html
+  <!-- _tamplates/category.html -->
+
+  <div class="price" data-sku-code="{{ product.variants.first.code }}">
+    <span class="amount"></span>
+    <span class="compare-at-amount"></span>
+  </div>
+```
+
+``` html
+  <!-- _tamplates/product.html -->
+
+<div class="price" data-sku-code="{{ page.product.variants.first.code }}">
+  <span class="compare-at-amount large has-text-grey-light"></span>
+  <span class="amount large has-text-success"></span>
+</div>
+```

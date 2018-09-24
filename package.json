@@ -1,10 +1,10 @@
 {
   "name": "contentful-commerce",
   "version": "1.0.0",
-  "description": "- Create free account on Contentful - Create empty space - Get Organization ID, Content management token (Generate personal token), Space ID and Content Delivery API (Access token)",
+  "description": "Contentful + Commerce Layer Demo",
   "main": "index.js",
   "dependencies": {
-    "commercelayer": "^1.1.1"
+    "commercelayer": "^1.1.2"
   },
   "devDependencies": {
     "webpack": "^4.19.1",
