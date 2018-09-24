@@ -22,7 +22,7 @@ layout: default
       <span class="amount large has-text-success"></span>
     </div>
 
-    <div class="select is-fullwidth">
+    <div class="select is-fullwidth variant-select-wrap">
       <select class="variant-select">
         <option disabled selected value="">{{ site.t[page.locale]["select_size"] | capitalize }}</option>
         {% for variant in page.product.variants %}
