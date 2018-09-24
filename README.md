@@ -730,3 +730,70 @@ node_modules
   {{ site.t[page.locale]['out_of_stock'] | capitalize }}
 </div>
 ```
+
+# Shopping bag
+
+``` shell
+$ touch _includes/shopping_bag_preview.html
+$ touch _includes/shopping_bag.html
+```
+
+``` html
+  <!-- _includes/shopping_bag_preview.html -->
+
+  <a class="navbar-item" id="shopping-bag-toggle">
+    <span class="icon">
+      <i class="fas fa-shopping-bag"></i>
+    </span>
+    <span class="tag is-warning is-rounded" id="shopping-bag-preview-count">0</span>
+  </a>
+```
+
+``` html
+  <!-- _includes/shopping_bag.html -->
+
+  <div id="shopping-bag">
+    <div class="shopping-bag-content">
+      <div class="columns">
+        <div class="column">
+          <h4 class="has-text-weight-bold">
+            {{ site.t[page.locale]['your_shopping_bag'] | capitalize }}
+          </h4>
+        </div>
+        <div class="column">
+          <h4 id="shopping-bag-preview-total"></h4>
+        </div>
+      </div>
+      <div class="shopping-bag-unavailable-message has-text-danger">
+        {{ site.t[page.locale]['out_of_stock'] | capitalize }}
+      </div>
+      <table class="table is-fullwidth" id="shopping-bag-table">
+      </table>
+      <div class="columns">
+        <div class="column">
+          <a href="#" class="button is-fullwidth" id="shopping-bag-close">
+            {{ site.t[page.locale]['continue_shopping'] | capitalize }}
+          </a>
+        </div>
+        <div class="column">
+          <a href="#" class="button is-fullwidth is-success" id="shopping-bag-checkout">
+            {{ site.t[page.locale]['proceed_to_checkout'] | capitalize }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+```
+
+``` html
+  <!-- _layouts/default.html -->
+
+  <div class="navbar-end">
+    <!-- [...] -->
+    {% include shopping_bag_preview.html %}
+  </div>
+
+  <!-- [...] -->
+  </footer>
+  {% include shopping_bag.html %}
+```

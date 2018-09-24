@@ -4,7 +4,7 @@
   "description": "Contentful + Commerce Layer Demo",
   "main": "index.js",
   "dependencies": {
-    "commercelayer": "^1.1.3"
+    "commercelayer": "^1.1.4"
   },
   "devDependencies": {
     "webpack": "^4.19.1",
