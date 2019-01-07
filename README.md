@@ -312,7 +312,7 @@ $ npm run watch
 To make the prices appear, add the following snippets to the category and product templates. The library will look into the page and populate the price amounts for each element that contains a *data-sku-code* attribute:
 
 ```
-  <!-- _tamplates/category.html -->
+  <!-- _templates/category.html -->
 
   <div class="price" data-sku-code="{{ product.variants.first.code }}">
     <span class="amount"></span>
@@ -321,7 +321,7 @@ To make the prices appear, add the following snippets to the category and produc
 ```
 
 ```
-  <!-- _tamplates/product.html -->
+  <!-- _templates/product.html -->
 
 <div class="price" data-sku-code="{{ page.product.variants.first.code }}">
   <span class="compare-at-amount large has-text-grey-light"></span>
@@ -334,7 +334,7 @@ To make the prices appear, add the following snippets to the category and produc
 With a similar approach, the JS library searches pages for elements with class `.variant` and checks their availability on Commerce Layer by their `data-sku-code`. It also adds the required event listeners to the `.variant-select` dropdown and to the `.add-to-bag` button, activating the purchasing functions. When a variant option is selected, the `.available-message` gets populated with the selected variant's delivery lead time information and shows the `.unavailable-message` when it goes out of stock.
 
 ```
-<!-- _tamplates/product.html -->
+<!-- _templates/product.html -->
 
 <div class="select is-fullwidth">
   <select class="variant-select">
